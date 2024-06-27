@@ -1,0 +1,45 @@
+CREATE TABLE ALUNO (
+    ID INT,
+    Nome VARCHAR(255),
+    Matrícula INT,
+    Email VARCHAR(255),
+    Endereço VARCHAR(255),
+    Telefone VARCHAR(255)
+);
+
+-- Inserção de dados na tabela ALUNO
+INSERT INTO ALUNO (ID, Nome, Matrícula, Email, Endereço, Telefone) VALUES
+(1, 'João Carlos', 1234, 'jcarlos@gmail.com', 'Rua de maio', '(11)7825-4689'),
+(2, 'José Vítor', 2345, 'jvitor@gmail.com', 'Rua da Saudade', '(11)7825-6589'),
+(3, 'Paulo André', 3456, 'pandr@gmail.com', 'Rua do Sol', '(11)7825-4495');
+
+-- Tabela EMPRÉSTIMO
+CREATE TABLE EMPRÉSTIMO (
+    Código INT,
+    Data_hora DATETIME,
+    Matric_Aluno INT,
+    Data_devolucao DATE
+);
+
+-- Inserção de dados na tabela EMPRÉSTIMO
+INSERT INTO EMPRÉSTIMO (Código, Data_hora, Matric_Aluno, Data_devolucao) VALUES
+(1, '2022-03-12 15:25', 1234, '2022-03-15'),
+(2, '2022-03-15 14:32', 2345, '2022-03-18'),
+(3, '2022-03-20 03:51', 3456, '2022-03-23');
+
+CREATE TABLE Livro (
+  Cod_Livro INT PRIMARY KEY,
+  Titulo VARCHAR(255) NOT NULL,
+  Autor VARCHAR(255) NOT NULL,
+  Cod_Sessao INT NOT NULL,
+  FOREIGN KEY (Cod_Sessao) REFERENCES Sessao(Codigo)
+);
+
+INSERT INTO Livro (Cod_Livro, Titulo, Autor, Cod_Sessao)
+VALUES
+  (1, 'Modelo Conceitual e Diagramas ER', 'Pressman, Roger S.', 3),
+  (2, 'Livro 2: Modelo Relacional e Álgebra Relacional', 'Heuser, Carlos Alberto', 1),
+  (3, 'Livro 3: Linguagem SQL', 'Beighley, Lynn', 2);
+
+
+
